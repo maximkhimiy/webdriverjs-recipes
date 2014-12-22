@@ -22,8 +22,8 @@ function handleFailure(err) {
 	closeBrowser();
 }
 
-function findTutsPlusLink() {
-	return browser.findElements(webdriver.By.css('[href="http://code.tutsplus.com/"]')).then(function(result) {
+function findUefaLink() {
+	return browser.findElements(webdriver.By.css('[href="http://www.uefa.com/"]')).then(function(result) {
 		return result[0];
 	});
 }
@@ -33,6 +33,6 @@ function closeBrowser() {
 }
 
 browser.get('https://www.google.com');
-browser.findElement(webdriver.By.name('q')).sendKeys('tuts+ code');
+browser.findElement(webdriver.By.name('q')).sendKeys('uefa site');
 browser.findElement(webdriver.By.name('btnG')).click();
-browser.wait(findTutsPlusLink, 2000).then(clickLink).then(logTitle).then(closeBrowser, handleFailure);
+browser.wait(findUefaLink, 2000).then(clickLink).then(logTitle).then(closeBrowser, handleFailure);
